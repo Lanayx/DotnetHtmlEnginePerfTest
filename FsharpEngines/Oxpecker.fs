@@ -6,13 +6,17 @@ module OxpeckerStatic =
     let staticView =
         html() {
             body(style = "width: 800px; margin: 0 auto") {
-                h1(style = "text-align: center; color: red") { "Error" }
-                p() { "Some long error text" }
-                p() { raw "<h2>Raw HTML</h2>" }
-                ul(id="list", class'="myList", lang="en", translate=false, hidden=false) {
-                    for _ in 1..10 do
-                        li().data("value", "12345") {
-                            span() { "Test" }
+                h1(style = "text-align: center; color: red") { "Header" }
+                ul(id="list", class'="myList", lang="en", translate=false, spellcheck=false) {
+                    for _ in 1..5 do
+                        li() {
+                            p(class'="goodItem")
+                                .data("value", "12345")
+                                .on("click", "alert('Hello')") {
+                                    raw "<h2>Raw HTML</h2>"
+                                }
+                            br()
+                            span(class'="badItem") { "<script>alert('Danger!')</script>" }
                         }
                 }
             }
