@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PerfTest", "DotnetHtmlEnginePerfTest\PerfTest.csproj", "{A32F3762-D6D5-4526-BF24-7095B2DCD60E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpEngines", "CsharpEngines\CsharpEngines.csproj", "{2875C926-D9CE-440E-B8D6-84CBF79AA2C1}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FsharpEngines", "FsharpEngines\FsharpEngines.fsproj", "{0CC18465-1947-4B60-8B00-C6C1729E0938}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A32F3762-D6D5-4526-BF24-7095B2DCD60E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A32F3762-D6D5-4526-BF24-7095B2DCD60E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A32F3762-D6D5-4526-BF24-7095B2DCD60E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A32F3762-D6D5-4526-BF24-7095B2DCD60E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2875C926-D9CE-440E-B8D6-84CBF79AA2C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2875C926-D9CE-440E-B8D6-84CBF79AA2C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2875C926-D9CE-440E-B8D6-84CBF79AA2C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2875C926-D9CE-440E-B8D6-84CBF79AA2C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CC18465-1947-4B60-8B00-C6C1729E0938}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CC18465-1947-4B60-8B00-C6C1729E0938}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CC18465-1947-4B60-8B00-C6C1729E0938}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CC18465-1947-4B60-8B00-C6C1729E0938}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
