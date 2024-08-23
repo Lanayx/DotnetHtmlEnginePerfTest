@@ -13,8 +13,8 @@ module FalcoCommon =
                     for _ in 1..num do
                         li [] [
                             p [ class' "goodItem"
-                                dataAttr "value" "12345"
-                                onclick "alert('Hello')" ] [
+                                create "value" "12345"
+                                create "onclick" "alert('Hello')" ] [
                                 Text.raw "<h2>Raw HTML</h2>"
                             ]
                             br []

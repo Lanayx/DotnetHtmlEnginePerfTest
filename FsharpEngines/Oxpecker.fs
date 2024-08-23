@@ -11,8 +11,8 @@ module OxpeckerCommon =
                     for _ in 1..num do
                         li() {
                             p(class'="goodItem")
-                                .data("value", "12345")
-                                .on("click", "alert('Hello')") {
+                                .attr("data-value", "12345")
+                                .attr("onclick", "alert('Hello')") {
                                     raw "<h2>Raw HTML</h2>"
                                 }
                             br()

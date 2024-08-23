@@ -11,8 +11,8 @@ module GiraffeCommon =
                     for _ in 1..num do
                         li [] [
                             p [ _class "goodItem"
-                                _data "value" "12345"
-                                _onclick "alert('Hello')" ] [
+                                attr "data-value" "12345"
+                                attr "onclick" "alert('Hello')" ] [
                                 rawText "<h2>Raw HTML</h2>"
                             ]
                             br []
