@@ -7,7 +7,7 @@ public class Program
 {
     public static int Main(string[] args)
     {
-        // var summary = GiraffeDynamic.renderToString();
+        // var summary = HandlebarsDynamic.RenderToString();
         // return summary.Length;
         BenchmarkRunner.Run<ViewEngineDynamicString>();
         return 0;
@@ -57,5 +57,11 @@ public class ViewEngineDynamicString
     public async Task RazorToString()
     {
         await RazorDynamic.RenderToString();
+    }
+
+    [Benchmark]
+    public void HandlebarsToString()
+    {
+        HandlebarsDynamic.RenderToString();
     }
 }
