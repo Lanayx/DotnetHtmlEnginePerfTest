@@ -6,11 +6,13 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <Compile Include="Falco.fs" />
         <Compile Include="Giraffe.fs" />
         <Compile Include="Oxpecker.fs" />
     </ItemGroup>
 
     <ItemGroup>
+      <PackageReference Include="Falco.Markup" Version="1.1.1" />
       <PackageReference Include="Giraffe.ViewEngine" Version="1.4.0" />
       <PackageReference Include="Oxpecker.ViewEngine" Version="0.13.0" />
     </ItemGroup>

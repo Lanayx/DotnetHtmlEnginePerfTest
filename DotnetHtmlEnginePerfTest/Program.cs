@@ -6,7 +6,7 @@ public class Program
 {
     public static void Main(string[] args)
     {
-        var summary = BenchmarkRunner.Run<ViewEngineStaticBytes>();
+        var summary = BenchmarkRunner.Run<ViewEngineDynamicString>();
     }
 }
 
@@ -22,7 +22,7 @@ public class ViewEngineStaticBytes
     [Benchmark]
     public void GiraffeToBytes()
     {
-        OxpeckerStatic.renderToBytes();
+        GiraffeStatic.renderToBytes();
     }
 }
 
@@ -38,6 +38,34 @@ public class ViewEngineStaticString
     [Benchmark]
     public void GiraffeToString()
     {
-        OxpeckerStatic.renderToString();
+        GiraffeStatic.renderToString();
+    }
+
+    [Benchmark]
+    public void FalcoToString()
+    {
+        FalcoStatic.renderToString();
+    }
+}
+
+[MemoryDiagnoser]
+public class ViewEngineDynamicString
+{
+    [Benchmark]
+    public void OxpeckerToString()
+    {
+        OxpeckerDynamic.renderToString();
+    }
+
+    [Benchmark]
+    public void GiraffeToString()
+    {
+        GiraffeDynamic.renderToString();
+    }
+
+    [Benchmark]
+    public void FalcoToString()
+    {
+        FalcoDynamic.renderToString();
     }
 }

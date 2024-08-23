@@ -2,13 +2,13 @@
 
 open Giraffe.ViewEngine
 
-module GiraffeStatic =
-    let staticView =
+module GiraffeCommon =
+    let getView num =
         html [] [
             body [ _style "width: 800px; margin: 0 auto" ] [
                 h1 [ _style "text-align: center; color: red" ] [ str "Header" ]
                 ul [ _id "list"; _class "myList"; _lang "en"; _translate "no"; _spellcheck "false" ] [
-                    for _ in 1..5 do
+                    for _ in 1..num do
                         li [] [
                             p [ _class "goodItem"
                                 _data "value" "12345"
@@ -22,8 +22,17 @@ module GiraffeStatic =
             ]
         ]
 
+module GiraffeStatic =
+
+    let staticView = GiraffeCommon.getView 3
+
     let renderToString () =
         staticView |> RenderView.AsString.htmlNode
 
     let renderToBytes () =
         staticView |> RenderView.AsBytes.htmlNode
+
+module GiraffeDynamic =
+
+    let renderToString () =
+        GiraffeCommon.getView 3 |> RenderView.AsString.htmlNode

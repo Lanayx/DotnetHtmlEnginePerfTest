@@ -2,13 +2,13 @@
 
 open Oxpecker.ViewEngine
 
-module OxpeckerStatic =
-    let staticView =
+module OxpeckerCommon =
+    let getView num =
         html() {
             body(style = "width: 800px; margin: 0 auto") {
                 h1(style = "text-align: center; color: red") { "Header" }
                 ul(id="list", class'="myList", lang="en", translate=false, spellcheck=false) {
-                    for _ in 1..5 do
+                    for _ in 1..num do
                         li() {
                             p(class'="goodItem")
                                 .data("value", "12345")
@@ -22,8 +22,16 @@ module OxpeckerStatic =
             }
         }
 
+module OxpeckerStatic =
+    let staticView = OxpeckerCommon.getView 3
+
     let renderToString () =
         staticView |> Render.toString
 
     let renderToBytes () =
         staticView |> Render.toBytes
+
+module OxpeckerDynamic =
+
+    let renderToString () =
+        OxpeckerCommon.getView 3 |> Render.toString
