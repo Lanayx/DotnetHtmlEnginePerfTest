@@ -10,8 +10,8 @@ public class ScribanCommon
 """
 <html>
   <body style="width: 800px; margin: 0 auto">
-    <h1 style="text-align: center; color: red">Header</h1>
-    <ul id="list" class="myList" lang="en" translate="yes" spellcheck="false">
+    <h1 style="text-align: center; color: red">{{ header }}</h1>
+    <ul id="list" class="myList" lang="en" translate="no" spellcheck="false">
       {{- for _ in 1..num -}}
         <li>
           <p class="goodItem" data-value="12345" onclick="alert('Hello')">
@@ -36,6 +36,6 @@ public class ScribanDynamic
 
     public static string RenderToString()
     {
-        return template.Render(new { Num = 3 });
+        return template.Render(new { Num = 3, Header = "Header" });
     }
 }

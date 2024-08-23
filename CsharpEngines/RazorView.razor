@@ -1,0 +1,27 @@
+﻿<html>
+<body style="width: 800px; margin: 0 auto">
+<h1 style="text-align: center; color: red">@Header</h1>
+<ul id="list" class="myList" lang="en" translate="no" spellcheck="false">
+@for (int i = 0; i < Num; i++)
+{
+  <li>
+    <p class="goodItem" data-value="12345" onclick="alert('Hello')">
+      @(new MarkupString("<h2>Raw HTML</h2>"))
+    </p>
+    <br>
+    <span class="badItem">
+      @("<script>alert('Danger!')</script>")
+    </span>
+  </li>
+}
+</ul>
+</body>
+</html>
+
+@code {
+    [Parameter]
+    public int Num { get; set; }
+
+    [Parameter]
+    public string Header { get; set; }
+}

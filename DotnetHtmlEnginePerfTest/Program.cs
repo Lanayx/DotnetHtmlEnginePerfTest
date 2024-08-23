@@ -7,8 +7,8 @@ public class Program
 {
     public static int Main(string[] args)
     {
-        //var summary = FluidDynamic.RenderToString();
-        //return summary.Length;
+        // var summary = GiraffeDynamic.renderToString();
+        // return summary.Length;
         BenchmarkRunner.Run<ViewEngineDynamicString>();
         return 0;
     }
@@ -51,5 +51,11 @@ public class ViewEngineDynamicString
     public void FluidToString()
     {
         FluidDynamic.RenderToString();
+    }
+
+    [Benchmark]
+    public async Task RazorToString()
+    {
+        await RazorDynamic.RenderToString();
     }
 }

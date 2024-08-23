@@ -3,10 +3,10 @@
 open Giraffe.ViewEngine
 
 module GiraffeCommon =
-    let getView num =
+    let getView num (header: string) =
         html [] [
             body [ _style "width: 800px; margin: 0 auto" ] [
-                h1 [ _style "text-align: center; color: red" ] [ str "Header" ]
+                h1 [ _style "text-align: center; color: red" ] [ str header ]
                 ul [ _id "list"; _class "myList"; _lang "en"; _translate "no"; _spellcheck "false" ] [
                     for _ in 1..num do
                         li [] [
@@ -25,4 +25,4 @@ module GiraffeCommon =
 module GiraffeDynamic =
 
     let renderToString () =
-        GiraffeCommon.getView 3 |> RenderView.AsString.htmlNode
+        GiraffeCommon.getView 3 "Header" |> RenderView.AsString.htmlNode

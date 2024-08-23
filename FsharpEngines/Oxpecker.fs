@@ -3,10 +3,10 @@
 open Oxpecker.ViewEngine
 
 module OxpeckerCommon =
-    let getView num =
+    let getView num (header: string) =
         html() {
             body(style="width: 800px; margin: 0 auto") {
-                h1(style="text-align: center; color: red") { "Header" }
+                h1(style="text-align: center; color: red") { header }
                 ul(id="list", class'="myList", lang="en", translate=false, spellcheck=false) {
                     for _ in 1..num do
                         li() {
@@ -25,4 +25,4 @@ module OxpeckerCommon =
 module OxpeckerDynamic =
 
     let renderToString () =
-        OxpeckerCommon.getView 3 |> Render.toString
+        OxpeckerCommon.getView 3 "Header" |> Render.toString

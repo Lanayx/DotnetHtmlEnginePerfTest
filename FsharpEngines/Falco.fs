@@ -5,10 +5,10 @@ open Falco.Markup.Elem
 open Falco.Markup.Attr
 
 module FalcoCommon =
-    let getView num =
+    let getView num (header: string) =
         html [] [
             body [ style "width: 800px; margin: 0 auto" ] [
-                h1 [ style "text-align: center; color: red" ] [ Text.enc "Header" ]
+                h1 [ style "text-align: center; color: red" ] [ Text.enc header ]
                 ul [ id "list"; class' "myList"; lang "en"; translate "no"; spellcheck "false" ] [
                     for _ in 1..num do
                         li [] [
@@ -27,4 +27,4 @@ module FalcoCommon =
 module FalcoDynamic =
 
     let renderToString () =
-        FalcoCommon.getView 3 |> renderNode
+        FalcoCommon.getView 3 "Header" |> renderNode
