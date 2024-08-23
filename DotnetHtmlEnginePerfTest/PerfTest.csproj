@@ -12,6 +12,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\CsharpEngines\CsharpEngines.csproj" />
       <ProjectReference Include="..\FsharpEngines\FsharpEngines.fsproj" />
     </ItemGroup>
 

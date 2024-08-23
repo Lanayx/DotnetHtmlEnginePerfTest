@@ -6,4 +6,10 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <PackageReference Include="DotLiquid" Version="2.2.692" />
+      <PackageReference Include="Fluid.Core" Version="2.11.1" />
+      <PackageReference Include="Scriban" Version="5.10.0" />
+    </ItemGroup>
+
 </Project>

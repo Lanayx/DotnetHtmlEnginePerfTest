@@ -22,16 +22,6 @@ module GiraffeCommon =
             ]
         ]
 
-module GiraffeStatic =
-
-    let staticView = GiraffeCommon.getView 3
-
-    let renderToString () =
-        staticView |> RenderView.AsString.htmlNode
-
-    let renderToBytes () =
-        staticView |> RenderView.AsBytes.htmlNode
-
 module GiraffeDynamic =
 
     let renderToString () =

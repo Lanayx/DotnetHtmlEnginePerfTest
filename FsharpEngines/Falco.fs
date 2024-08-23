@@ -24,13 +24,6 @@ module FalcoCommon =
             ]
         ]
 
-module FalcoStatic =
-
-    let staticView = FalcoCommon.getView 3
-
-    let renderToString () =
-        staticView |> renderNode
-
 module FalcoDynamic =
 
     let renderToString () =
