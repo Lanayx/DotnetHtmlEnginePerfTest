@@ -24,7 +24,9 @@ public class RazorDynamic
     private static Dictionary<string, object?> paramDictionary = new Dictionary<string, object?>()
     {
         { "Num", 3 },
-        { "Header", "Header"}
+        { "Header", "Header"},
+        { "TrustedHtml", "<h2>Raw HTML</h2>"},
+        { "UntrustedHtml", "<script>alert('Danger!')</script>"}
     };
 
     public static async Task<string> RenderToString()

@@ -15,11 +15,11 @@ public class ScribanCommon
       {{- for _ in 1..num -}}
         <li>
           <p class="goodItem" data-value="12345" onclick="alert('Hello')">
-            {{- "<h2>Raw HTML</h2>" -}}
+            {{- trustedhtml -}}
           </p>
           <br>
           <span class="badItem">
-            {{- "<script>alert('Danger!')</script>" | html.escape -}}
+            {{- untrustedhtml | html.escape -}}
           </span>
         </li>
       {{- end -}}
@@ -36,6 +36,10 @@ public class ScribanDynamic
 
     public static string RenderToString()
     {
-        return template.Render(new { Num = 3, Header = "Header" });
+        return template.Render(new
+        {
+            Num = 3, Header = "Header",
+            Trustedhtml = "<h2>Raw HTML</h2>", Untrustedhtml = "<script>alert('Danger!')</script>"
+        });
     }
 }

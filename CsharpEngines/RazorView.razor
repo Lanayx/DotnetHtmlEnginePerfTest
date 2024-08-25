@@ -6,11 +6,11 @@
 {
   <li>
     <p class="goodItem" data-value="12345" onclick="alert('Hello')">
-      @(new MarkupString("<h2>Raw HTML</h2>"))
+      @(new MarkupString(TrustedHtml))
     </p>
     <br>
     <span class="badItem">
-      @("<script>alert('Danger!')</script>")
+      @(UntrustedHtml)
     </span>
   </li>
 }
@@ -21,7 +21,10 @@
 @code {
     [Parameter]
     public int Num { get; set; }
-
     [Parameter]
     public string Header { get; set; }
+    [Parameter]
+    public string TrustedHtml { get; set; }
+    [Parameter]
+    public string UntrustedHtml { get; set; }
 }

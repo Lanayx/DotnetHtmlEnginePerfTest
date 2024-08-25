@@ -15,11 +15,11 @@ public class DotLiquidCommon
       {%- for _ in (1..num) -%}
         <li>
           <p class="goodItem" data-value="12345" onclick="alert('Hello')">
-            {{- "<h2>Raw HTML</h2>" -}}
+            {{- trustedHtml -}}
           </p>
           <br>
           <span class="badItem">
-            {{- "<script>alert('Danger!')</script>" | escape -}}
+            {{- untrustedHtml | escape -}}
           </span>
         </li>
       {%- endfor -%}
@@ -36,6 +36,7 @@ public class DotLiquidDynamic
 
     public static string RenderToString()
     {
-        return template.Render(Hash.FromAnonymousObject(new { num = 3, header = "Header" }));
+        return template.Render(Hash.FromAnonymousObject(new { num = 3, header = "Header",
+          trustedHtml = "<h2>Raw HTML</h2>", untrustedHtml = "<script>alert('Danger!')</script>" }));
     }
 }

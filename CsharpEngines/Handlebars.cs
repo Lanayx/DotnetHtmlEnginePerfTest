@@ -15,11 +15,11 @@ public class HandlebarsCommon
       {{~ #each num ~}}
         <li>
           <p class="goodItem" data-value="12345" onclick="alert('Hello')">
-            {{{~ @root.rawHtml ~}}}
+            {{{~ @root.trustedHtml ~}}}
           </p>
           <br>
           <span class="badItem">
-            {{~ @root.dangerous ~}}
+            {{~ @root.untrustedHtml ~}}
           </span>
         </li>
       {{~ /each ~}}
@@ -37,7 +37,7 @@ public class HandlebarsDynamic
 
     public static string RenderToString()
     {
-        return template(new { header = "Header", num = fakeArray, rawHtml = "<h2>Raw HTML</h2>",
-          dangerous = "<script>alert('Danger!')</script>" });
+        return template(new { header = "Header", num = fakeArray, trustedHtml = "<h2>Raw HTML</h2>",
+          untrustedHtml = "<script>alert('Danger!')</script>" });
     }
 }

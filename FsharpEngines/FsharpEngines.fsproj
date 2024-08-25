@@ -8,6 +8,7 @@
     <ItemGroup>
         <Compile Include="Falco.fs" />
         <Compile Include="Giraffe.fs" />
+        <Compile Include="Interpolation.fs" />
         <Compile Include="Oxpecker.fs" />
         <Compile Include="OxpeckerTweaked.fs" />
     </ItemGroup>

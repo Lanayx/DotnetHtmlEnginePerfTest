@@ -45,21 +45,27 @@ module OxpeckerTweakedCommon =
                 } :> HtmlElement
            ) |> OxpeckerHelpers.prerenderedParentN 2
         let innards =
-            li() {
-                p(class'="goodItem")
-                    .attr("data-value", "12345")
-                    .attr("onclick", "alert('Hello')") {
-                        raw "<h2>Raw HTML</h2>"
-                    }
-                br()
-                span(class'="badItem") { "<script>alert('Danger!')</script>" }
-            }
-        fun num (header: string) ->
+            (fun [| trustedHtml: HtmlElement; untrustedHtml: HtmlElement |] ->
+                li() {
+                    p(class'="goodItem")
+                        .attr("data-value", "12345")
+                        .attr("onclick", "alert('Hello')") {
+                            trustedHtml
+                        }
+                    br()
+                    span(class'="badItem") { untrustedHtml }
+                } :> HtmlElement
+            ) |> OxpeckerHelpers.prerenderedParentN 2
+
+        fun num (header: string) (trustedHtml: string) (untrustedHtml: string) ->
             OxpeckerHelpers.combineN parent [|
                 RegularTextNode header
                 __(){
                     for _ in 1..num do
-                        innards
+                        OxpeckerHelpers.combineN innards [|
+                            RawTextNode trustedHtml
+                            RegularTextNode untrustedHtml
+                        |]
                 }
             |]
 
@@ -67,4 +73,4 @@ module OxpeckerTweakedCommon =
 module OxpeckerTweakedDynamic =
 
     let renderToString () =
-        OxpeckerTweakedCommon.getView 3 "Header" |> Render.toString
+        OxpeckerTweakedCommon.getView 3 "Header" "<h2>Raw HTML</h2>" "<script>alert('Danger!')</script>" |> Render.toString

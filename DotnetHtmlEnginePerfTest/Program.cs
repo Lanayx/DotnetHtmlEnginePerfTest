@@ -7,7 +7,7 @@ public class Program
 {
     public static int Main(string[] args)
     {
-        // var summary = HandlebarsDynamic.RenderToString();
+        // var summary = InterpolationDynamic.renderToString();
         // return summary.Length;
         BenchmarkRunner.Run<ViewEngineDynamicString>();
         return 0;
@@ -15,8 +15,14 @@ public class Program
 }
 
 [MemoryDiagnoser]
-public class ViewEngineDynamicString
-{
+public class ViewEngineDynamicString {
+
+    [Benchmark(Baseline = true)]
+    public void InterpolationToString()
+    {
+        InterpolationDynamic.renderToString();
+    }
+
     [Benchmark]
     public void OxpeckerToString()
     {

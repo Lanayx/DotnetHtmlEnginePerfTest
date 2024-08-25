@@ -16,11 +16,11 @@ public class FluidCommon
       {%- for _ in (1..num) -%}
         <li>
           <p class="goodItem" data-value="12345" onclick="alert('Hello')">
-            {{- "<h2>Raw HTML</h2>" -}}
+            {{- trustedHtml -}}
           </p>
           <br>
           <span class="badItem">
-            {{- "<script>alert('Danger!')</script>" | escape -}}
+            {{- untrustedHtml | escape -}}
           </span>
         </li>
       {%- endfor -%}
@@ -37,7 +37,8 @@ public class FluidDynamic
 
     public static string RenderToString()
     {
-        var context = new TemplateContext(new { num = 3, header = "Header" });
+        var context = new TemplateContext(new { num = 3, header = "Header",
+          trustedHtml = "<h2>Raw HTML</h2>", untrustedHtml = "<script>alert('Danger!')</script>" });
         return template.Render(context);
     }
 }
