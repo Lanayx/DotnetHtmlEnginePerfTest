@@ -64,4 +64,10 @@ public class ViewEngineDynamicString
     {
         HandlebarsDynamic.RenderToString();
     }
+
+    [Benchmark]
+    public void OxpeckerTweakedToString()
+    {
+        OxpeckerTweakedDynamic.renderToString();
+    }
 }
