@@ -13,6 +13,27 @@
       <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="8.0.8" />
       <PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.0" />
       <PackageReference Include="Scriban" Version="5.10.0" />
+      <PackageReference Include="System.CodeDom" Version="8.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Update="T4View.tt">
+        <Generator>TextTemplatingFilePreprocessor</Generator>
+        <LastGenOutput>T4View.cs</LastGenOutput>
+      </None>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="TFourView.cs">
+        <AutoGen>True</AutoGen>
+        <DesignTime>True</DesignTime>
+        <DependentUpon>TFourView.tt</DependentUpon>
+      </Compile>
+      <Compile Update="T4View.cs">
+        <AutoGen>True</AutoGen>
+        <DesignTime>True</DesignTime>
+        <DependentUpon>T4View.tt</DependentUpon>
+      </Compile>
     </ItemGroup>
 
 </Project>

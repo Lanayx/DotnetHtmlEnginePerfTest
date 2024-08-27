@@ -10,7 +10,7 @@ public class DotLiquidCommon
 """
 <html>
   <body style="width: 800px; margin: 0 auto">
-    <h1 style="text-align: center; color: red">{{ header }}</h1>
+    <h1 style="text-align: center; color: red">{{ header | escape }}</h1>
     <ul id="list" class="myList" lang="en" translate="no" spellcheck="false">
       {%- for _ in (1..num) -%}
         <li>

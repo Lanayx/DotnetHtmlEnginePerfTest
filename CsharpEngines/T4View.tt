@@ -1,0 +1,27 @@
+﻿<#@ template language="C#" #>
+<#@ import namespace="System.Net" #>
+<html>
+<body style="width: 800px; margin: 0 auto">
+<h1 style="text-align: center; color: red"><#= WebUtility.HtmlEncode(Header) #></h1>
+<ul id="list" class="myList" lang="en" translate="no" spellcheck="false">
+<# for (int i = 1; i <= Num; i++)
+   { #>
+  <li>
+    <p class="goodItem" data-value="12345" onclick="alert('Hello')">
+      <#= TrustedHtml #>
+    </p>
+    <br>
+    <span class="badItem">
+      <#= WebUtility.HtmlEncode(UntrustedHtml) #>
+    </span>
+  </li>
+<# } #>
+</ul>
+</body>
+</html>
+<#+
+  public string Header { get; set; }
+  public int Num { get; set; }
+  public string TrustedHtml { get; set; }
+  public string UntrustedHtml { get; set; }
+#>

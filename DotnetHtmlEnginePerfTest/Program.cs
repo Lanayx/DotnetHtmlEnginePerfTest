@@ -7,8 +7,7 @@ public class Program
 {
     public static int Main(string[] args)
     {
-        // var summary = InterpolationDynamic.renderToString();
-        // return summary.Length;
+        // var summary = T4Dynamic.RenderToString();
         BenchmarkRunner.Run<ViewEngineDynamicString>();
         return 0;
     }
@@ -63,6 +62,12 @@ public class ViewEngineDynamicString {
     public async Task RazorToString()
     {
         await RazorDynamic.RenderToString();
+    }
+
+    [Benchmark]
+    public void T4ToString()
+    {
+        T4Dynamic.RenderToString();
     }
 
     [Benchmark]
