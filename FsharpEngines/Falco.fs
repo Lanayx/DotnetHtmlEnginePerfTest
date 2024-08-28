@@ -13,7 +13,7 @@ module FalcoCommon =
                     for _ in 1..num do
                         li [] [
                             p [ class' "goodItem"
-                                create "value" "12345"
+                                create "data-value" "12345"
                                 create "onclick" "alert('Hello')" ] [
                                 Text.raw trustedHtml
                             ]
